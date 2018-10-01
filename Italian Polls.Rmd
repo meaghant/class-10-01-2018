@@ -15,5 +15,11 @@ library(dplyr)
 
 ```{r, message = FALSE}
 raw <- read_csv("polls_IT-parliament_2018-10-01.csv")
-raw
+
+raw %>%
+  gather(key = "party", value = "votes", FIPDLFI:NcI) %>%
+  ggplot(aes(x = date, y = votes, color = party)) + geom_point()
+    
 ```
+
+Purpose of this document is to show polling results in Italy.
